@@ -1,0 +1,366 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style media="screen">
+	body {
+		transition: background 1s, color 1s;
+        -webkit-user-select: none;  /* Chrome all / Safari all */
+        -moz-user-select: none;     /* Firefox all */
+        -ms-user-select: none;      /* IE 10+ */
+        user-select: none;
+	}
+    #box {
+        width: 100vw;
+        height: 85vh;
+        font-family: "Vernada";
+        padding: 0;
+        margin: 0;
+    }
+	</style>
+	<script type="text/javascript">
+    var count = 0;
+	$(document).ready(function() {
+		$(document).keypress(function(){
+			setRandomColor();
+			randomWords();
+		});
+        $(document).click(function(){
+			setRandomColor();
+			randomWords();
+		});
+
+	});
+
+
+	function toStringRBG(myString) {
+		return "rgb(" + myString[0] + ", " + myString[1] + ", " + myString[2] + ")" ;
+	}
+
+	function setRandomColor() {
+		var myBackground = [Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256)];
+		var myForeground = [0, 0, 0];
+
+		if (0.299 * myBackground[0] + 0.587 * myBackground[1] + 0.114 * myBackground[2] <= 128)
+		myForeground = [255, 255, 255];
+
+		$("#colorpad").css("background", toStringRBG(myBackground));
+		$("#colorpad").css("color", toStringRBG(myForeground));
+	}
+	function randomWords() {
+		var Words = [
+			"すいえい",
+			"えいが",
+			"おんがく",
+			"どくしょ",
+			"りょこう",
+			"りょうり",
+			"ブラジル",
+			"たんじょうび",
+            "いち",
+            "に",
+            "さん",
+            "よん　し",
+            "ご",
+            "ろく",
+            "なな　しち",
+            "はち",
+            "きゅう",
+            "じゅう",
+            "じゅういち",
+            "じゅうに",
+            "じゅうさん",
+            "じゅうよん　じゅうし",
+            "じゅうご",
+            "じゅうろく",
+            "じゅうなな　じゅうしち",
+            "じゅうはち",
+            "じゅうきゅう",
+            "にじゅう",
+            "ついたち",
+            "ふつか",
+            "みっか",
+            "よっか",
+            "いつか",
+            "むいか",
+            "なのか",
+            "ようか",
+            "ここのか",
+            "とおか",
+            "じゅういちにち",
+            "じゅうににち",
+            "じゅうさんにち",
+            "じゅうよっか",
+            "じゅうごにち",
+            "じゅうろくにち",
+            "じゅうななにち　じゅうしちにち",
+            "じゅうはちにち",
+            "じゅうくにち",
+            "はつか",
+            "にじゅういちにち",
+            "にじゅうににち",
+            "にじゅうさんにち",
+            "にじゅうよっか",
+            "にじゅうごにち",
+            "にじゅうろくにち",
+            "にじゅうしちにち　にじゅうななにち",
+            "にじゅうはちにち",
+            "にじゅうくにち",
+            "さんじゅうにち",
+            "さんじゅういちにち",
+            "いちがつ",
+            "にがつ",
+            "さんがつ",
+            "しがつ",
+            "ごがつ",
+            "ろくがつ",
+            "しちがつ",
+            "はちがつ",
+            "くがつ",
+            "じゅうがつ",
+            "じゅういちがつ",
+            "じゅうにがつ",
+            "いっさい",
+            "にさい",
+            "さんさい",
+            "よんさい",
+            "ごさい",
+            "ろくさい",
+            "ななさい",
+            "はっさい",
+            "きゅうさい",
+            "じゅうさい",
+            "じゅういっさい",
+            "じゅうにさい",
+            "じゅうさんさい",
+            "じゅうよんさい",
+            "じゅうごさい",
+            "じゅうろくさい",
+            "じゅうななさい",
+            "じゅうはっさい",
+            "じゅうきゅうさい",
+            "にじゅうさい　はたち"
+		];
+        var Kanji = [
+            "水泳",
+			"映画",
+			"音楽",
+			"読書",
+			"旅行",
+			"調理",
+			"ブラジル",
+			"誕生日",
+            "一",
+            "二",
+            "三",
+            "四",
+            "五",
+            "六",
+            "七",
+            "八",
+            "九",
+            "十",
+            "十一",
+            "十二",
+            "十三",
+            "十四",
+            "十五",
+            "十六",
+            "十七",
+            "十八",
+            "十九",
+            "二十",
+            "一日",
+            "二日",
+            "三日",
+            "四日",
+            "五日",
+            "六日",
+            "七日",
+            "八日",
+            "九日",
+            "十日",
+            "十一日",
+            "十二日",
+            "十三日",
+            "十四日",
+            "十五日",
+            "十六日",
+            "十七日",
+            "十八日",
+            "十九日",
+            "二十日",
+            "二十一日",
+            "二十二日",
+            "二十三日",
+            "二十四日",
+            "二十五日",
+            "二十六日",
+            "二十七日",
+            "二十八日",
+            "二十九日",
+            "三十日",
+            "三十一日",
+            "一月",
+            "二月",
+            "三月",
+            "四月",
+            "五月",
+            "六月",
+            "七月",
+            "八月",
+            "九月",
+            "十月",
+            "十一月",
+            "十二月",
+            "一歳",
+            "二歳",
+            "三歳",
+            "四歳",
+            "五歳",
+            "六歳",
+            "七歳",
+            "八歳",
+            "九歳",
+            "十歳",
+            "十一歳",
+            "十二歳",
+            "十三歳",
+            "十四歳",
+            "十五歳",
+            "十六歳",
+            "十七歳",
+            "十八歳",
+            "十九歳",
+            "二十歳"
+        ];
+		var Means = [
+			"Bơi lội",
+			"Phim ảnh",
+			"Âm nhạc",
+			"Đọc sách",
+			"Du lịch",
+			"Nấu ăn",
+			"Brazil",
+			"Sinh nhật",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "Ngày 1",
+            "Ngày 2",
+            "Ngày 3",
+            "Ngày 4",
+            "Ngày 5",
+            "Ngày 6",
+            "Ngày 7",
+            "Ngày 8",
+            "Ngày 9",
+            "Ngày 10",
+            "Ngày 11",
+            "Ngày 12",
+            "Ngày 13",
+            "Ngày 14",
+            "Ngày 15",
+            "Ngày 16",
+            "Ngày 17",
+            "Ngày 18",
+            "Ngày 19",
+            "Ngày 20",
+            "Ngày 21",
+            "Ngày 22",
+            "Ngày 23",
+            "Ngày 24",
+            "Ngày 25",
+            "Ngày 26",
+            "Ngày 27",
+            "Ngày 28",
+            "Ngày 29",
+            "Ngày 30",
+            "Ngày 31",
+            "Tháng 1",
+            "Tháng 2",
+            "Tháng 3",
+            "Tháng 4",
+            "Tháng 5",
+            "Tháng 6",
+            "Tháng 7",
+            "Tháng 8",
+            "Tháng 9",
+            "Tháng 10",
+            "Tháng 11",
+            "Tháng 12",
+            "1 tuổi",
+            "2 tuổi",
+            "3 tuổi",
+            "4 tuổi",
+            "5 tuổi",
+            "6 tuổi",
+            "7 tuổi",
+            "8 tuổi",
+            "9 tuổi",
+            "10 tuổi",
+            "11 tuổi",
+            "12 tuổi",
+            "13 tuổi",
+            "14 tuổi",
+            "15 tuổi",
+            "16 tuổi",
+            "17 tuổi",
+            "18 tuổi",
+            "19 tuổi",
+            "20 tuổi"
+		];
+        var myNumber1 = Math.floor(Math.random() * 91);
+        // var myNumber2 = Math.floor(Math.random() * 8);
+		// var myNumber3 = Math.floor(Math.random() * 8);
+        document.getElementsByTagName("p")[0].innerHTML = "Press any key to random<br />" + count++;
+		document.getElementById("box").innerHTML = Means[myNumber1] + "<br />" + Kanji[myNumber1];//+ "<br />" + Means[myNumber2] + "<br />" + Means[myNumber3];
+		document.getElementById("small").innerHTML = Words[myNumber1];
+
+        var width = $('#box').width(),
+            html = '<p id="content" style="overflow:hidden;white-space:nowrap;padding:0;margin:0;"></p>',
+            line = $('#box').wrapInner(html).children()[0],
+            FontSize = 200;
+         document.getElementById('box').style.fontSize = FontSize + "px";
+
+
+         while (document.getElementById('content').scrollWidth > document.getElementById('box').scrollWidth) {
+             FontSize--;
+             document.getElementById('box').style.fontSize = FontSize + "px";
+         }
+
+        $("#content").css("padding-top", ($('#box').height()-$("#content").height())/2 - 50);
+	}
+
+	</script>
+</head>
+<body id="colorpad" onload="setRandomColor();randomWords();">
+	<center>
+		<p></p>
+        <div id="box"></div>
+		<p id="small" style="font-size:20px"></p>
+	</center>
+</body>
+</html>
