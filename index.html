@@ -30,14 +30,19 @@
 			setRandomColor();
 			randomWords();
 		});
+        $(document).click(function(){
 			setRandomColor();
-            $(document).click(function(){
 			randomWords();
 		});
-        $(document).on("tap", function(){
+        $(document).on({'touchstart': function(){
             setRandomColor();
 			randomWords();
-        });
+        }});
+
+        // $(document).on("tap", function(){
+        //     setRandomColor();
+		// 	randomWords();
+        // });
 
 	});
 
