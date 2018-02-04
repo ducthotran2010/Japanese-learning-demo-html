@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -30,10 +30,14 @@
 			setRandomColor();
 			randomWords();
 		});
-        $(document).click(function(){
 			setRandomColor();
+            $(document).click(function(){
 			randomWords();
 		});
+        $(document).on("tap", function(){
+            setRandomColor();
+			randomWords();
+        });
 
 	});
 
