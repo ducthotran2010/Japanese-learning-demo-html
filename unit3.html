@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title></title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <style media="screen">
+   body {
+      transition: background 1s, color 1s;
+   }
+   #box {
+      width: 100vw;
+      height: 85vh;
+      font-family: "Vernada";
+      padding: 0;
+      margin: 0;
+   }
+   </style>
+   <script type="text/javascript">
+   var count = 0;
+   $(document).ready(function() {
+      $(document).keypress(function(){
+         setRandomColor();
+         randomWords();
+      });
+      $(document).click(function(){
+         setRandomColor();
+         randomWords();
+      });
+      $(document).on({'touchend': function(){
+          setRandomColor();
+      randomWords();
+      }});
+      $(document).on("tap", function(){
+          setRandomColor();
+      	randomWords();
+      });
+
+   });
+
+
+   function toStringRBG(myString) {
+      return "rgb(" + myString[0] + ", " + myString[1] + ", " + myString[2] + ")" ;
+   }
+
+   function setRandomColor() {
+      var myBackground = [Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256)];
+      var myForeground = [0, 0, 0];
+
+      if (0.299 * myBackground[0] + 0.587 * myBackground[1] + 0.114 * myBackground[2] <= 128)
+      myForeground = [255, 255, 255];
+
+      $("#colorpad").css("background", toStringRBG(myBackground));
+      $("#colorpad").css("color", toStringRBG(myForeground));
+   }
+
+   function randomWords() {
+      var Words = [
+         {
+            japanese: "今",
+            vietnamese: "Bây giờ"
+         },
+         {
+            japanese: "午前",
+            vietnamese: "Buổi sáng"
+         },
+         {
+            japanese: "午後",
+            vietnamese: "Buổi chiều"
+         },
+         {
+            japanese: "昼",
+            vietnamese: "Ban ngày, buổi trưa<br/>ひる"
+         },
+         {
+            japanese: "銀行",
+            vietnamese: "Ngân hàng<br/>ぎんこう"
+         },
+         {
+            japanese: "体育館",
+            vietnamese: "Thể dục quán<br/>たいいくかん"
+         },
+         {
+            japanese: "図書館",
+            vietnamese: "Đồ thư quán<br/>としょかん"
+         },
+         {
+            japanese: "病院",
+            vietnamese: "Bệnh viện<br/>びょういん"
+         },
+         {
+            japanese: "郵便局",
+            vietnamese: "Bưu tiện cục<br/>ゆうびんきょく"
+         },
+         {
+            japanese: "授業",
+            vietnamese: "Thọ giáo<br/>じゅきょう"
+         },
+         {
+            japanese: "テスト",
+            vietnamese: "Bài kiểm tra"
+         },
+         {
+            japanese: "休み",
+            vietnamese: "Ngày nghỉ<br/>やすみ"
+         },
+         {
+            japanese: "時間",
+            vietnamese: "Thời gian<br/>じかん"
+         },
+      ];
+
+      var myNumber1 = Math.floor(Math.random() * Words.length);
+      document.getElementsByTagName("p")[0].innerHTML = "Press any key to random<br />" + count++ + " - " + myNumber1;
+      document.getElementById("box").innerHTML = Words[myNumber1].japanese;
+      document.getElementById("small").innerHTML = Words[myNumber1].vietnamese;
+
+      var width = $('#box').width(),
+      html = '<p id="content" style="overflow:hidden;white-space:nowrap;padding:0;margin:0;"></p>',
+      line = $('#box').wrapInner(html).children()[0],
+      FontSize = 200;
+      document.getElementById('box').style.fontSize = FontSize + "px";
+
+
+      while (document.getElementById('content').scrollWidth > document.getElementById('box').scrollWidth) {
+         FontSize--;
+         document.getElementById('box').style.fontSize = FontSize + "px";
+      }
+
+      $("#content").css("padding-top", ($('#box').height()-$("#content").height())/2 - 50);
+   }
+
+   </script>
+</head>
+<body id="colorpad" onload="setRandomColor();randomWords();">
+   <center>
+      <p></p>
+      <div id="box"></div>
+      <p id="small" style="font-size:20px"></p>
+   </center>
+</body>
+</html>

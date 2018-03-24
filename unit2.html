@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title></title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <style media="screen">
+   body {
+      transition: background 1s, color 1s;
+   }
+   #box {
+      width: 100vw;
+      height: 85vh;
+      font-family: "Vernada";
+      padding: 0;
+      margin: 0;
+   }
+   </style>
+   <script type="text/javascript">
+   var count = 0;
+   $(document).ready(function() {
+      $(document).keypress(function(){
+         setRandomColor();
+         randomWords();
+      });
+      $(document).click(function(){
+         setRandomColor();
+         randomWords();
+      });
+      $(document).on({'touchend': function(){
+          setRandomColor();
+      randomWords();
+      }});
+      $(document).on("tap", function(){
+          setRandomColor();
+      	randomWords();
+      });
+
+   });
+
+
+   function toStringRBG(myString) {
+      return "rgb(" + myString[0] + ", " + myString[1] + ", " + myString[2] + ")" ;
+   }
+
+   function setRandomColor() {
+      var myBackground = [Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256)];
+      var myForeground = [0, 0, 0];
+
+      if (0.299 * myBackground[0] + 0.587 * myBackground[1] + 0.114 * myBackground[2] <= 128)
+      myForeground = [255, 255, 255];
+
+      $("#colorpad").css("background", toStringRBG(myBackground));
+      $("#colorpad").css("color", toStringRBG(myForeground));
+   }
+
+   function randomWords() {
+      var Words = [
+         {
+            japanese: "インフォメーション",
+            vietnamese: "Quầy thông tin",
+         },
+         {
+            japanese: "エスカレーター",
+            vietnamese: "Thang cuốn"
+         },
+         {
+            japanese: "エレベーター",
+            vietnamese: "Thang máy"
+         },
+         {
+            japanese: "喫煙所<br/>きつえんじょ",
+            vietnamese: "Chỗ hút thuốc"
+         },
+         {
+            japanese: "トイレ",
+            vietnamese: "Nhà vệ sinh"
+         },
+         {
+            japanese: "レジ",
+            vietnamese: "Quầy thu ngân"
+         },
+         {
+            japanese: "喫茶店<br/>きっさてん",
+            vietnamese: "Quán giải khát"
+         },
+         {
+            japanese: "１００円ショップ",
+            vietnamese: "Cửa hàng 100 yên"
+         },
+         {
+            japanese: "レストラン",
+            vietnamese: "Nhà hàng"
+         },
+         {
+            japanese: "地下<br/>ちか",
+            vietnamese: "Ngầm"
+         },
+         {
+            japanese: "携帯電話<br/>けいたいでんわ",
+            vietnamese: "Điện thoại di động"
+         },
+         {
+            japanese: "電子辞書<br/>でんしじしょ",
+            vietnamese: "Từ điển điện thử"
+         },
+         {
+            japanese: "パソコン",
+            vietnamese: "Máy tính cá nhân"
+         },
+         {
+            japanese: "靴<br/>くつ",
+            vietnamese: "Giày"
+         },
+         {
+            japanese: "消しゴム<br/>けしごむ",
+            vietnamese: "Cục tẩy"
+         },
+         {
+            japanese: "ペン",
+            vietnamese: "Bút"
+         },
+         {
+            japanese: "トイレットペーパー",
+            vietnamese: "Giấy vệ sinh"
+         },
+         {
+            japanese: "本<br/>ほん",
+            vietnamese: "Sách"
+         },
+         {
+            japanese: "油<br/>あぶら",
+            vietnamese: "Dầu"
+         },
+         {
+            japanese: "ケーキ",
+            vietnamese: "Bánh ngọt"
+         },
+         {
+            japanese: "こめ",
+            vietnamese: "Gạo"
+         },
+         {
+            japanese: "卵<br/>たまご",
+            vietnamese: "Noãn"
+         },
+         {
+            japanese: "パン",
+            vietnamese: "Bánh mỳ"
+         },
+         {
+            japanese: "店員<br/>てんいん",
+            vietnamese: "Nhân viên bán hàng"
+         },
+         {
+            japanese: "～屋<br/>～や",
+            vietnamese: "~hiệu"
+         },
+         {
+            japanese: "いらっしゃいませ",
+            vietnamese: "Kính chào quí khách"
+         },
+         {
+            japanese: "かばん",
+            vietnamese: "Túi xách"
+         },
+         {
+            japanese: "ズポン",
+            vietnamese: "Cái quần"
+         },
+         {
+            japanese: "Tシャツ",
+            vietnamese: "Áo phông"
+         },
+         {
+            japanese: "時計<br/>とけい",
+            vietnamese: "Đồng hồ"
+         },
+         {
+            japanese: "じゃ",
+            vietnamese: "Vâng, Thôi thì"
+         },
+         {
+            japanese: "魚<br/>さかな",
+            vietnamese: "Cá"
+         },
+         {
+            japanese: "肉<br/>にく",
+            vietnamese: "Thịt"
+         },
+         {
+            japanese: "牛肉<br/>ぎゅうにく",
+            vietnamese: "Thịt bò"
+         },
+         {
+            japanese: "豚肉<br/>ぶたにく",
+            vietnamese: "Thịt heo"
+         },
+         {
+            japanese: "野菜<br/>やさい",
+            vietnamese: "Rau"
+         },
+         {
+            japanese: "いちご",
+            vietnamese: "Dâu"
+         },
+         {
+            japanese: "りんご",
+            vietnamese: "Táo"
+         },
+         {
+            japanese: "料理<br/>りょうり",
+            vietnamese: "Nấu ăn"
+         },
+         {
+            japanese: "カレー",
+            vietnamese: "Cà ri"
+         },
+         {
+            japanese: "スープ",
+            vietnamese: "Súp"
+         },
+         {
+            japanese: "とんかつ",
+            vietnamese: "Thịt heo chiên xù"
+         },
+         {
+            japanese: "ハンバーグ",
+            vietnamese: "Thịt heo băm viên"
+         },
+         {
+            japanese: "ごはん",
+            vietnamese: "Cơm, bữa ăn"
+         },
+         {
+            japanese: "ライス",
+            vietnamese: "Gạo, cơm"
+         },
+         {
+            japanese: "シュース",
+            vietnamese: "Nước ép trái cây"
+         },
+         {
+            japanese: "コーヒー",
+            vietnamese: "Cà phê"
+         },
+         {
+            japanese: "紅茶<br/>こうちゃ",
+            vietnamese: "Trà đen"
+         },
+         {
+            japanese: "お茶<br/>おちゃ",
+            vietnamese: "Trà"
+         },
+         {
+            japanese: "ビール",
+            vietnamese: "Bia"
+         },
+         {
+            japanese: "ワイン",
+            vietnamese: "Rượu"
+         },
+         {
+            japanese: "インド",
+            vietnamese: "Ấn Độ"
+         },
+         {
+            japanese: "ドイツ",
+            vietnamese: "Đức"
+         },
+         {
+            japanese: "フランス",
+            vietnamese: "Pháp"
+         },
+         {
+            japanese: "財布<br/>さいふ",
+            vietnamese: "Ví"
+         },
+         {
+            japanese: "だれ",
+            vietnamese: "Ai"
+         },
+         {
+            japanese: "注文をお願いします<br/>ちゅうもんおねがいします",
+            vietnamese: "Cho gọi món"
+         },
+         {
+            japanese: "どうぞ",
+            vietnamese: "Xin mời"
+         }
+      ];
+
+      var myNumber1 = Math.floor(Math.random() * Words.length);
+      document.getElementsByTagName("p")[0].innerHTML = "Press any key to random<br />" + count++ + " - " + myNumber1;
+      document.getElementById("box").innerHTML = Words[myNumber1].japanese;
+      document.getElementById("small").innerHTML = Words[myNumber1].vietnamese;
+
+      var width = $('#box').width(),
+      html = '<p id="content" style="overflow:hidden;white-space:nowrap;padding:0;margin:0;"></p>',
+      line = $('#box').wrapInner(html).children()[0],
+      FontSize = 200;
+      document.getElementById('box').style.fontSize = FontSize + "px";
+
+
+      while (document.getElementById('content').scrollWidth > document.getElementById('box').scrollWidth) {
+         FontSize--;
+         document.getElementById('box').style.fontSize = FontSize + "px";
+      }
+
+      $("#content").css("padding-top", ($('#box').height()-$("#content").height())/2 - 50);
+   }
+
+   </script>
+</head>
+<body id="colorpad" onload="setRandomColor();randomWords();">
+   <center>
+      <p></p>
+      <div id="box"></div>
+      <p id="small" style="font-size:20px"></p>
+   </center>
+</body>
+</html>
